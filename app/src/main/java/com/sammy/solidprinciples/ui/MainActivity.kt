@@ -1,10 +1,9 @@
-package com.sammy.solidprinciples
+package com.sammy.solidprinciples.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.sammy.solidprinciples.databinding.ActivityMainBinding
 import com.sammy.solidprinciples.models.generateSolidPrinciples
-import com.sammy.solidprinciples.ui.SolidPrincipleAdapter
 import com.sammy.solidprinciples.utils.SpaceItemDecoration
 import com.sammy.solidprinciples.utils.ViewUtils
 
@@ -15,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setSupportActionBar(binding.homeToolbar)
         setUpRecycler()
     }
 
