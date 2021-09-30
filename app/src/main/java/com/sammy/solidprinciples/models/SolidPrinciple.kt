@@ -1,12 +1,15 @@
 package com.sammy.solidprinciples.models
 
+import android.os.Parcelable
 import androidx.annotation.StringRes
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class SolidPrinciple(
     val name:String,
     val description:String,
     val codeSample:String
-)
+):Parcelable
 
 internal fun generateSolidPrinciples():List<SolidPrinciple> =
     listOf(

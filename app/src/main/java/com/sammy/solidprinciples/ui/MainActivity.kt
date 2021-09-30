@@ -20,9 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpRecycler() {
         val solidPrinciples = generateSolidPrinciples()
-        val solidPrincipleAdapter = SolidPrincipleAdapter{
-
-        }
+        val solidPrincipleAdapter = SolidPrincipleAdapter()
         val spacing = ViewUtils.convertDpToPixel(this,8)
         binding.solidPrinciplesRecycler.apply {
             adapter = solidPrincipleAdapter
