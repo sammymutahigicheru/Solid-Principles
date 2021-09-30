@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.sammy.solidprinciples.databinding.ActivityMainBinding
 import com.sammy.solidprinciples.models.generateSolidPrinciples
 import com.sammy.solidprinciples.ui.SolidPrincipleAdapter
-import com.sammy.solidprinciples.utils.GridSpaceItemDecoration
+import com.sammy.solidprinciples.utils.SpaceItemDecoration
 import com.sammy.solidprinciples.utils.ViewUtils
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val spacing = ViewUtils.convertDpToPixel(this,8)
         binding.solidPrinciplesRecycler.apply {
             adapter = solidPrincipleAdapter
-            addItemDecoration(GridSpaceItemDecoration(spacing))
+            addItemDecoration(SpaceItemDecoration(spacing))
             hasFixedSize()
         }
         solidPrincipleAdapter.submitList(solidPrinciples)

@@ -2,10 +2,16 @@ package com.sammy.solidprinciples.ui
 
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.AutoTransition
+import androidx.transition.TransitionManager
+import com.sammy.solidprinciples.R
 import com.sammy.solidprinciples.databinding.LayoutSolidPrincipleBinding
 import com.sammy.solidprinciples.models.SolidPrinciple
 
@@ -22,6 +28,23 @@ class SolidPrincipleAdapter(
             binding.apply {
                 solidPrincpleName.text = item.name
                 solidPrincipleDescription.text = item.description
+                expandArrow.setOnClickListener {
+                    if (detailsLayout.isVisible){
+                        TransitionManager.beginDelayedTransition(
+                            cardView,
+                            AutoTransition()
+                        )
+                        detailsLayout.visibility = GONE
+                        expandArrow.setImageResource(R.drawable.ic_baseline_arrow_down_24)
+                    }else {
+                        TransitionManager.beginDelayedTransition(
+                            cardView,
+                            AutoTransition()
+                        )
+                        detailsLayout.visibility = VISIBLE
+                        expandArrow.setImageResource(R.drawable.ic_baseline_arrow_up_24)
+                    }
+                }
             }
         }
 
@@ -35,7 +58,7 @@ class SolidPrincipleAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
-        val binding = LayoutSolidPrincipleBinding.inflate(inflater)
+        val binding = LayoutSolidPrincipleBinding.inflate(inflater,parent, false)
         return ViewHolder(binding)
     }
 

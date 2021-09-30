@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-internal class GridSpaceItemDecoration(var spaceInPx: Int) : RecyclerView.ItemDecoration() {
+internal class SpaceItemDecoration(var spaceInPx: Int) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,
